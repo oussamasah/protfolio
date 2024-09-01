@@ -1,0 +1,41 @@
+---
+import { Image, getImage } from "astro:assets";
+const {imgs}=Astro.props 
+---
+
+
+<div
+	id="gallery"
+	class="container grid grid-cols-2 gap-2 px-2 pb-2 mx-auto md:grid-cols-3"
+>
+	{
+		imgs.map(async (imagePath:any) => {
+            console.log("--------------------",imagePath)
+			let image = imagePath ;
+	
+
+			return (
+				<a
+					href={imagePath}
+			
+					target="_blank"
+					class="overflow-hidden rounded-md border-[1px] border-primary hover:border-secondary"
+				>
+					   <img src={imagePath} />
+				</a>
+			);
+		})
+	}
+</div>
+  <script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
+
+const lightbox = new PhotoSwipeLightbox({
+  gallery: '#my-gallery',
+  children: 'a',
+  pswpModule: () => import('photoswipe'),
+});
+
+lightbox.init();
+  </script>

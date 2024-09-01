@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "react-jsx",  // Enables JSX syntax for React
+    "jsxImportSource": "react", // Specifies React as the JSX factory
+    "strict": true,  // Enable all strict type-checking options
+    "baseUrl": ".",  // Base directory to resolve non-relative module names
+    "paths": {
+      "~/*": ["./src/*"]  // Alias paths for cleaner imports
+    },
+    "types": ["astro/astro-jsx"]  // Support for JSX in .astro files
+  },
+  "include": ["src", "types"]  // Ensure all source and type files are included
+}

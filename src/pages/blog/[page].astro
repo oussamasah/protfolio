@@ -1,0 +1,78 @@
+---
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+import ContactCTA from '../../components/ContactCTA.astro';
+import PostPreview from '../../components/PostPreview.astro';
+import Hero from '../../components/Hero.astro';
+import Grid from '../../components/Grid.astro';
+import { getAllPosts } from '../../utils/graphql';
+
+
+
+
+
+
+import type { GetStaticPaths } from 'astro';
+
+// Correct definition of getStaticPaths with proper typing
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const posts = await getAllPosts()
+
+  const astronautPages =posts;
+  // Generate pages from our array of astronauts, with 2 to a page
+  return paginate(astronautPages, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+
+---
+
+<BaseLayout
+  title="Recent posts | Sharaoui Oussema"
+  description="Learn about Shraoui Oussema's most recent posts"
+>
+  <div class="stack gap-20">
+    <main class="wrapper stack gap-8">
+      <Hero
+        title="Posts"
+        tagline="See my most recent posts below to get an idea of my news."
+        align="start"
+      />
+      <nav aria-label="Page navigation">
+        <ul class="flex items-center -space-x-px h-8 text-sm">
+          <!-- Previous Page Link -->
+          <li>
+            {page.url.prev ? (
+              <a href={page.url.prev} class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                Previous
+              </a>
+            ) : null}
+          </li>
+        
+          <!-- Page Number Links -->
+         
+        
+          <!-- Next Page Link -->
+          <li>
+            {page.url.next ? (
+              <a href={page.url.next} class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                Next
+              </a>
+            ) : null}
+          </li>
+        </ul>
+        
+      </nav>
+      <Grid variant="offset">
+        {page.data.map((p:any) => (
+        
+            <PostPreview post={p} />
+       
+        ))}
+      </Grid>
+      
+    </main>
+    <ContactCTA />
+  </div>
+</BaseLayout>

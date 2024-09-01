@@ -1,0 +1,69 @@
+---
+
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+import ContactCTA from '../../../components/ContactCTA.astro';
+import Hero from '../../../components/Hero.astro';
+import Icon from '../../../components/Icon.astro';
+import { getAllPosts, addComment } from '../../../utils/graphql';
+import Comments from './Comments';
+
+interface Props {
+	entry: any;
+
+}
+export async function getStaticPaths() {
+	const posts = await getAllPosts()
+	return posts.map((entry:any) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+
+const { entry } = Astro.props;
+
+
+---
+
+<BaseLayout title={entry.title??""} description={entry.excerpt??""}>
+
+	<div class="stack gap-20">
+		<div class="stack gap-15">
+			<header>
+				<div class="wrapper stack gap-2">
+					<a class="back-link" href="/blog/1"><Icon icon="arrow-left" /> Blog</a>
+					<Hero title={entry.title} align="start">
+						<div class="details">
+							<div class="tags">
+								<!-- {entry.categories.nodes.map((t) => <Pill>{t.name}</Pill>)} -->
+							</div>
+							<div class="description"  set:html={entry.excerpt}>{}</div>
+						</div>
+					</Hero>
+				</div>
+			</header>
+			<main class="wrapper">
+				<div class="stack gap-10 content mb-5">
+					{entry.featuredImage.node.mediaItemUrl && <img src={entry.featuredImage.node.mediaItemUrl} alt={entry.title || ''} />}
+					
+                </div>	<div class=" w-full"  set:html={entry.content}>{}</div>
+
+				<Comments entry={entry}  client:load>
+
+   
+
+
+
+
+
+
+
+				
+			</main>
+		</div>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
