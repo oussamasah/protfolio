@@ -1,6 +1,6 @@
 import { renderers } from './renderers.mjs';
-import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_CFFJGo8l.mjs';
-import { manifest } from './manifest_B3dlD0Ou.mjs';
+import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_De6g_4BW.mjs';
+import { manifest } from './manifest_C1SFHI6T.mjs';
 import { onRequest } from './_noop-middleware.mjs';
 
 const _page0 = () => import('./pages/_image.astro.mjs');
@@ -13,7 +13,7 @@ const _page6 = () => import('./pages/work/_---slug_.astro.mjs');
 const _page7 = () => import('./pages/index.astro.mjs');
 
 const pageMap = new Map([
-    ["../../../../usr/lib/node_modules/astro/dist/assets/endpoint/node.js", _page0],
+    ["node_modules/astro/dist/assets/endpoint/node.js", _page0],
     ["src/pages/404.astro", _page1],
     ["src/pages/about.astro", _page2],
     ["src/pages/blog/post/[...slug].astro", _page3],
@@ -32,8 +32,8 @@ const _manifest = Object.assign(manifest, {
 });
 const _args = {
     "mode": "standalone",
-    "client": "file:///home/oussema/my-headless-project/astro-project/dist/client/",
-    "server": "file:///home/oussema/my-headless-project/astro-project/dist/server/",
+    "client": "file:///app/astro-project/dist/client/",
+    "server": "file:///app/astro-project/dist/server/",
     "host": false,
     "port": 4321,
     "assets": "_astro"
