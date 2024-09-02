@@ -1,6 +1,6 @@
 import { renderers } from './renderers.mjs';
-import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_De6g_4BW.mjs';
-import { manifest } from './manifest_C1SFHI6T.mjs';
+import { c as createExports, s as serverEntrypointModule } from './chunks/_@astrojs-ssr-adapter_DR01xIqe.mjs';
+import { manifest } from './manifest_BFDvs6GV.mjs';
 import { onRequest } from './_noop-middleware.mjs';
 
 const _page0 = () => import('./pages/_image.astro.mjs');
@@ -32,8 +32,8 @@ const _manifest = Object.assign(manifest, {
 });
 const _args = {
     "mode": "standalone",
-    "client": "file:///app/astro-project/dist/client/",
-    "server": "file:///app/astro-project/dist/server/",
+    "client": "file:///home/oussema/my-headless-project/astro-project/dist/client/",
+    "server": "file:///home/oussema/my-headless-project/astro-project/dist/server/",
     "host": false,
     "port": 4321,
     "assets": "_astro"

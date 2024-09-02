@@ -1,6 +1,6 @@
 import { parse } from 'devalue';
 import { escape } from 'html-escaper';
-import { D as DEFAULT_404_COMPONENT } from './astro/server_P8xD79HA.mjs';
+import { D as DEFAULT_404_COMPONENT } from './astro/server_DZ1-r13R.mjs';
 
 const ACTION_QUERY_PARAMS = {
   actionName: "_astroAction",
@@ -8,7 +8,7 @@ const ACTION_QUERY_PARAMS = {
   actionRedirect: "_astroActionRedirect"
 };
 
-const __vite_import_meta_env__ = {"ASSETS_PREFIX": undefined, "BASE_URL": "/portfolio/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_WP_URL": "http://wordpress/graphql", "SITE": "https://oussamasah.github.io", "SSR": true};
+const __vite_import_meta_env__ = {"ASSETS_PREFIX": undefined, "BASE_URL": "/", "DEV": false, "MODE": "production", "PROD": true, "PUBLIC_WP_URL": "http://wordpress/graphql", "SITE": "https://oussamasah.github.io", "SSR": true};
 const codeToStatusMap = {
   // Implemented from tRPC error code table
   // https://trpc.io/docs/server/error-handling#error-codes

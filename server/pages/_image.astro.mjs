@@ -1,9 +1,9 @@
 import { readFile } from 'node:fs/promises';
 import { isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { A as AstroError, f as NoImageMetadata, F as FailedToFetchRemoteImageDimensions, g as ExpectedImageOptions, h as ExpectedImage, i as ExpectedNotESMImage, r as resolveSrc, j as isRemoteImage, k as isESMImportedImage, l as isLocalService, D as DEFAULT_HASH_PROPS, m as InvalidImageService, n as ImageMissingAlt, o as isRemoteAllowed } from '../chunks/astro/assets-service_TK7HPiTT.mjs';
+import { A as AstroError, f as NoImageMetadata, F as FailedToFetchRemoteImageDimensions, g as ExpectedImageOptions, h as ExpectedImage, i as ExpectedNotESMImage, r as resolveSrc, j as isRemoteImage, k as isESMImportedImage, l as isLocalService, D as DEFAULT_HASH_PROPS, m as InvalidImageService, n as ImageMissingAlt, o as isRemoteAllowed } from '../chunks/astro/assets-service_1Wf7iXc2.mjs';
 import { isRemotePath } from '@astrojs/internal-helpers/path';
-import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, s as spreadAttributes } from '../chunks/astro/server_P8xD79HA.mjs';
+import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, s as spreadAttributes } from '../chunks/astro/server_DZ1-r13R.mjs';
 import 'clsx';
 import * as mime from 'mrmime';
 export { renderers } from '../renderers.mjs';
@@ -846,7 +846,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      '../chunks/astro/assets-service_TK7HPiTT.mjs'
+      '../chunks/astro/assets-service_1Wf7iXc2.mjs'
     ).then(n => n.K).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -952,7 +952,7 @@ const $$Image = createComponent(async ($$result, $$props, $$slots) => {
     additionalAttributes.srcset = image.srcSet.attribute;
   }
   return renderTemplate`${maybeRenderHead()}<img${addAttribute(image.src, "src")}${spreadAttributes(additionalAttributes)}${spreadAttributes(image.attributes)}>`;
-}, "/app/astro-project/node_modules/astro/components/Image.astro", void 0);
+}, "/home/oussema/my-headless-project/astro-project/node_modules/astro/components/Image.astro", void 0);
 
 const $$Astro = createAstro("https://oussamasah.github.io");
 const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
@@ -1012,7 +1012,7 @@ const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
     const srcsetAttribute = props.densities || !props.densities && !props.widths ? `${image.src}${image.srcSet.values.length > 0 ? ", " + image.srcSet.attribute : ""}` : image.srcSet.attribute;
     return renderTemplate`<source${addAttribute(srcsetAttribute, "srcset")}${addAttribute(mime.lookup(image.options.format ?? image.src) ?? `image/${image.options.format}`, "type")}${spreadAttributes(sourceAdditionalAttributes)}>`;
   })} <img${addAttribute(fallbackImage.src, "src")}${spreadAttributes(imgAdditionalAttributes)}${spreadAttributes(fallbackImage.attributes)}> </picture>`;
-}, "/app/astro-project/node_modules/astro/components/Picture.astro", void 0);
+}, "/home/oussema/my-headless-project/astro-project/node_modules/astro/components/Picture.astro", void 0);
 
 const imageConfig = {"service":{"entrypoint":"astro/assets/services/sharp","config":{}},"domains":[],"remotePatterns":[],"endpoint":"astro/assets/endpoint/node"};
 					// This is used by the @astrojs/node integration to locate images.
@@ -1021,7 +1021,7 @@ const imageConfig = {"service":{"entrypoint":"astro/assets/services/sharp","conf
 					// in the Lambda bundle, which would bloat the bundle with images.
 					// To prevent this, we mark the URL construction as pure,
 					// so that it's tree-shaken away for all platforms that don't need it.
-					const outDir = /* #__PURE__ */ new URL("file:///app/astro-project/dist/client/");
+					const outDir = /* #__PURE__ */ new URL("file:///home/oussema/my-headless-project/astro-project/dist/client/");
 					const assetsDir = /* #__PURE__ */ new URL("_astro", outDir);
 					const getImage = async (options) => await getImage$1(options, imageConfig);
 
